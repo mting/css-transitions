@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Work+Sans:900);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Work Sans';
+        font-weight: 900;
+        line-height: 1.1em;
+        text-transform: none;
+        color: #111;
+      }
+      .remark-code, .remark-inline-code, .remark-slide-number { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+      .left-column h2:last-of-type, .left-column h3:last-child {
+        color: #000;
+      }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+      .responsive {
+      }
+      .responsive img {
+        width: 100%;
+        height: auto;
+      }
+      table {
+        border: 1px solid #aaa;
+        padding: 5px;
+      }
+      table caption {
+        color: firebrick;
+      }
+      td {
+        border: 1px solid #999;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+      class: center, middle
+
+      # Front-end Technologies
+      ### SCUOLA POLITECNICA DI DESIGN SPD
+      #### 10. 05. 2018
+
+      ---
+      class: center, middle
+
+      #CSS Transitions
+      
+      
+      ---
+      
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+      
+      **CSS transitions**, provide a way to control animation speed when changing CSS properties. 
+      
+      Instead of having property changes take effect immediately, you can cause the changes in a property to take place over a period of time. 
+      
+      For example, if you change the color of an element from white to black, usually the change is instantaneous. 
+      
+      With CSS transitions enabled, changes occur at time intervals that follow an acceleration curve, all of which can be customized.
+      
+      ]
+      
+      ---
+      
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+      
+      Animations that involve transitioning between two states are often called implicit transitions as the states in between the start and final states are implicitly defined by the browser.
+      
+      CSS transitions let you decide: 
+      
+      - which properties to animate (by **listing them explicitly**)
+      
+      - when the animation will start (by **setting a delay**)
+      
+      - how long the transition will last (by **setting a duration**)
+      
+      - and how the transition will run (by **defining a timing function**, e.g. linearly or quick at the beginning, slow at the end).
+      
+      
+      ]
+      
+      ---
+      
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+      
+      ##CSS properties
+        
+      These are some of the properties we can animate:
+      
+      - background
+      - border
+      - color
+      - flex
+      - font (size, weight)
+      - margin and padding
+      - position (top, right, bottom, left)
+      - transform
+      - visibility
+      
+      .footnote[https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties]
+      
+      ]
+      
+      ---
+      class: center, middle
+      
+      ![button](book.gif)
+      
+      ---
+      class: center, middle
+
+      
+      ![logo](logo_interaction.gif)
+      
+      
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+
+      ##CSS properties used to define transitions
+
+      CSS Transitions are controlled using the shorthand ```transition``` property. 
+      
+      This is the best way to configure transitions, as it makes it easier to avoid that the lengths of the parameter list are out of sync, which can be very frustrating to have to spend lots of time debugging the CSS.
+
+      You can control the individual components of the transition with the following sub-properties:
+      
+      ]
+
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+
+      ##CSS properties used to define transitions
+
+      **transition-property**
+      
+      Specifies the name or names of the CSS properties to which transitions should be applied. Only properties listed here are animated during transitions; changes to all other properties occur instantaneously as usual.
+      
+      **transition-duration**
+      
+      Specifies the duration over which transitions should occur. You can specify a single duration that applies to all properties during the transition, or multiple values to allow each property to transition over a different period of time. 
+
+      ]
+
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+
+      ##CSS properties used to define transitions
+
+      **transition-timing-function**
+      
+      Specifies a function to define how intermediate values for properties are computed. Timing functions determine how intermediate values of the transition are calculated. Most timing functions can be specified by providing the graph of the corresponding function, as defined by four points defining a cubic bezier.
+      
+      - linear
+      - ease
+      - ease-in
+      - ease-in-out
+      - ease-out
+      - step-start
+      - step-end
+      
+      
+      .footnote[https://developer.mozilla.org/en-US/docs/Web/CSS/timing-function]
+
+      ]
+
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+
+      ##CSS properties used to define transitions
+
+      **transition-timing-function**
+      
+      - steps
+      
+      ```css
+      /* There is 5 treads, the last one happens */
+      /* right before the end of the animation. */
+      steps(5, end)
+
+      /* A two-step staircase, the first one happening */
+      /* at the start of the animation. */
+      steps(2, start)        
+
+      /* The second parameter is optional. */
+      steps(2)
+      ```  
+      
+      ]
+
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+
+      ##CSS properties used to define transitions
+
+      **transition-timing-function**
+      
+      - cubic-bezier(x1, y1, x2, y2)
+      
+      ```css
+      cubic-bezier(0.1, 0.7, 1.0, 0.1)
+      ```  
+      
+      ![cubic](cubic-bezier.png)
+
+      
+      ]
+
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+
+      ##CSS properties used to define transitions
+
+      **transition-delay**
+      
+      Defines how long to wait between the time a property is changed and the transition actually begins.
+      
+      ```css
+      transition-delay: 1s;
+      ```  
+      
+      
+      ]
+
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+
+      ##CSS transition shorthand
+
+      
+      The shorthand CSS syntax is written as follows:
+      
+      ```css
+      div {
+      transition: <property> <duration> <timing-function> <delay>;
+      }
+      ```
+      
+      ```css
+      div {
+        transition: color 1s linear 1s;
+      }
+      ```  
+      
+      
+      ]
+
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+      ###A simple hover effect
+      
+      ```css
+      div {
+        transition: background-color 0.5s ease;
+        background-color: red;
+      }
+      div:hover {
+        background-color: green;
+      }
+      ```
+      
+      ]
+      
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+      ###Multiple properties
+      
+      You need to separate them by comma.
+      
+      ```css
+      div {
+        transition: background 0.2s ease,
+                    padding 0.8s linear;
+      }
+      ```
+      
+      ]
+      
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+      ###All properties
+      
+      
+      ```css
+      div {
+        transition: all 0.2s ease;
+      }
+      ```
+      
+      ]
+      
+      ---
+
+      layout: false
+      .left-column[
+
+      ]
+      .right-column[
+      ###Resources
+      
+      - [CSS3 Transitions](http://www.w3schools.com/css/css3_transitions.asp)
+      
+      - [Animatable properties](https://www.w3.org/TR/css3-transitions/#animatable-properties)
+      
+      - [Transition property](https://css-tricks.com/almanac/properties/t/transition/)
+      
+      - [Using CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions)
+      
+      - [Cubic Bezier](http://cubic-bezier.com/)
+      
+      ]
+
+
+
+
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '4:3',
+        highlightStyle: 'github',
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
