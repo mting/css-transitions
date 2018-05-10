@@ -49,3 +49,43 @@ article {
 							padding .4s ease-out;
 }
 
+/* funkyLink2  */
+
+.funkyLink2 {
+	background-color: black;
+	background-image: url(arrow.svg);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: right -25px center;
+	
+	color: white;
+	
+	padding: 15px;
+	
+	display: inline-block;
+	
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: sans-serif;
+	
+	/*	transition: property, duration, timing-function, delay */
+	transition: background-color .3s linear .3s,
+							background-position .1s ease-in 0s,
+							border-radius .4s,
+							padding .3s ease-out .1s;
+
+}
+
+.funkyLink2:hover {
+	background-position: right 20px center;
+	
+	border-radius: 10px;
+	
+	padding-right:  60px;
+	
+	/*	transition: property, duration, timing-function, delay */
+	transition: background-color .3s linear .1s,
+							background-position .1s ease-out .3s,
+							border-radius .4s,
+							padding .4s ease-out;
+}
